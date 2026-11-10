@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Catalogue Submission Form</title>
+        <link rel="stylesheet" href="style.css">
+    </head>
+    <body style="font-family: Arial; background-image: url(1.png); background-repeat: no-repeat; background-position: center; margin: 0; background-attachment: fixed;">
+        
+
+        <div style="display: grid; grid-template-rows: 1fr 6fr; height: 100vh;">
+                <div style= "display: grid; grid-template-columns: 3fr 1fr; margin: 14px; font-size: 30px;">
+                    <div class="b1">
+                        <p style="margin: 0; margin-left: 10px;">Students' International Relations Cell</p>
+                        <p style="margin: 0; margin-left: 10px; font-size: 20px;">Indian Institute of Technology, Kharagpur</p>
+                    </div>
+                    <div class="b2">
+                        <p style="font-size: 20px; text-align: right; margin-right: 10px; margin-left: 10px;">Submit your Catalogue here !</p>
+                    </div>
+                </div>
+                <div style="border-color: rgb(239, 237, 228); background-color: rgba(228, 244, 244, 0.6); margin: 12px; border-style: solid; border-radius: 14px; border-width: 2px; box-shadow: inset 0 0 20px rgba(244, 222, 162, 0.5);">
+
+                    <div style="display: grid; grid-template-columns: 1fr 1fr;">
+                        <div class="same" style="margin-top: 40px;">
+                            <input type="text" placeholder="NAME" class="in" id="nm">
+                        </div>
+                        <div class="same" style="background-color: rgba(183, 205, 198, 0.7);">
+                            <p style="font-size: 18PX; margin-top: 3px; margin-left: 6px;">PLEASE SHARE THE DRIVE LINK FOR ALL THE DRAFS</p>
+                        </div>
+                        <div class="same" style="margin-top: 40px;">
+                            <input type="text" placeholder="MAIL DRAFT 1" class="in" id="md1">
+                        </div>
+                        <div class="same">
+                            <input type="text" placeholder="ROLL NO." class="in" id="rn">
+                        </div>
+                        <div class="same" style="margin-top: 40px;">
+                            <input type="text" placeholder="MAIL DRAFT 2" class="in" id="md2">
+                        </div>
+                        <div class="same">
+                            <input type="text" placeholder="TEAM" class="in" id="tm">
+                        </div>
+                        <div class="same" style="margin-top: 40px;">
+                            <input type="text" placeholder="MAIL DRAFT 3" class="in" id="md3">
+                        </div>
+                        <div class="same">
+                            <input type="text" placeholder="ANY COMMENTS" class="in" id="cmt">
+                        </div>
+                    </div>
+                    <div>
+                        <p class="sb" id="st">Submit</p>
+                    </div>
+                </div>
+        </div>
+
+        <script>
+    const SCRIPT_URL = "https://script.google.com/macros/s/AKfycbxw-NWWTEnd4HrG9dDk-dJKZWbIxl0ETOx5PbUIlUFt8r-tEPRRB0nz9zdhgHrw7hr0/exec";
+    let submitting = false;
+
+    document.getElementById("st").addEventListener("click", async function () {
+        if (submitting) return;
+
+        const ids = ["nm", "rn", "tm", "md1", "md2", "md3", "cmt"];
+
+        const data = {
+            name: document.getElementById("nm").value.trim(),
+            roll: document.getElementById("rn").value.trim(),
+            team: document.getElementById("tm").value.trim(),
+            d1:   document.getElementById("md1").value.trim(),
+            d2:   document.getElementById("md2").value.trim(),
+            d3:   document.getElementById("md3").value.trim(),
+            comt: document.getElementById("cmt").value.trim()
+        };
+
+        if (!data.name || !data.roll) {
+            alert("Please fill in your name and roll number.");
+            return;
+        }
+
+        const btn = document.getElementById("st");
+        submitting = true;
+        btn.textContent = "Submitting...";
+
+        try {
+            const res = await fetch(SCRIPT_URL, {
+                method: "POST",
+                headers: { "Content-Type": "text/plain;charset=utf-8" },
+                body: JSON.stringify(data)
+            });
+            if (!res.ok) throw new Error("Bad response");
+
+            ids.forEach(id => document.getElementById(id).value = "");
+            alert("Submitted");
+        } catch (err) {
+            alert("Submission failed. Please try again.");
+        }
+
+        submitting = false;
+        btn.textContent = "Submit";
+    });
+</script>
+        
+
+    </body>
+</html>
+

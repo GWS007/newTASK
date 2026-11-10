@@ -1,0 +1,92 @@
+.same {
+    border-style: solid;
+    border-radius: 20px;
+    margin: 10px;
+    height: 50px;
+    font-size: 20px;
+    border-width: 0;
+    background-color: rgba(232, 234, 228, 0.5);
+}
+
+.sb {
+    text-align: center; 
+    height: 50px; 
+    background-color: rgba(243, 243, 143, 0.5); 
+    border-radius: 20px; 
+    margin: 0;
+    margin-left: 450px; 
+    margin-right: 50px; 
+    padding: 0; 
+    color: rgb(123, 178, 177);
+    font-size: 24px; 
+    padding: 0;
+    padding-top: 16px;
+    transition: background-color 0.25s, color 0.25s, box-shadow 0.15s;
+}
+
+.sb:hover {
+    background-color: rgba(196, 252, 85, 0.7);
+    color: rgb(141, 141, 141);
+}
+
+.sb:active {
+    opacity: 0.7;
+    background-color: none;
+    color: antiquewhite;
+    box-shadow:inset 0 0 30px rgba(4, 4, 4, 0.1);
+}
+
+.b1 {
+    margin-right: 8px; 
+    border-radius: 20px; 
+    background-color: antiquewhite; 
+    box-shadow: inset 0 0 10px rgba(240, 183, 78, 0.5);
+    display: inline-block; 
+    padding-top: 10px; 
+    padding-left: 3px;
+    transition: background-color 0.2s, color 0.2s;
+}
+
+.b1:hover {
+    background-color: rgb(249, 221, 183); 
+    color: rgb(63, 116, 22);
+}
+
+.b2 {
+    background-color: rgb(215, 245, 197); 
+    display: inline-block; 
+    border-radius:20px;
+    transition: background-color 0.2s, color 0.2s;
+    box-shadow: inset 0 0 15px rgb(124, 241, 95, 0.5);
+}
+
+.b2:hover {
+    background-color: rgb(181, 248, 143); 
+    color: rgb(148, 107, 41);
+}
+
+.in {
+    height: 30px; 
+    font-size: 20px; 
+    margin: 4px; 
+    margin-top: 0; 
+    border-radius: 15px; 
+    border-style: solid; 
+    border-width: 0; 
+    padding: 4px;
+}
+
+/* ---------- Success message ---------- */
+#success-message {
+    text-align: center;
+    font-size: 28px;
+    padding: 60px 20px;
+}
+.hidden { display: none; }
+
+/* ---------- Small screens ---------- */
+@media (max-width: 700px) {
+    .header { grid-template-columns: 1fr; }
+    .form-grid { grid-template-columns: 1fr; }
+    .title-box h1 { font-size: 22px; }
+}
