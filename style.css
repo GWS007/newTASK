@@ -75,18 +75,3 @@
     border-width: 0; 
     padding: 4px;
 }
-
-/* ---------- Success message ---------- */
-#success-message {
-    text-align: center;
-    font-size: 28px;
-    padding: 60px 20px;
-}
-.hidden { display: none; }
-
-/* ---------- Small screens ---------- */
-@media (max-width: 700px) {
-    .header { grid-template-columns: 1fr; }
-    .form-grid { grid-template-columns: 1fr; }
-    .title-box h1 { font-size: 22px; }
-}
