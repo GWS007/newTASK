@@ -6,6 +6,12 @@
     font-size: 20px;
     border-width: 0;
     background-color: rgba(232, 234, 228, 0.5);
+    transition: background-color 0.2s;
+}
+
+.same:hover {
+
+    background-color: rgba(204, 206, 201, 0.5);
 }
 
 .sb {
@@ -74,4 +80,11 @@
     border-style: solid; 
     border-width: 0; 
     padding: 4px;
+}
+
+#rd {
+    background-color: rgba(199, 222, 215, 0.7);
+}
+#rd:hover {
+    background-color: rgba(190, 194, 192, 0.7);
 }
